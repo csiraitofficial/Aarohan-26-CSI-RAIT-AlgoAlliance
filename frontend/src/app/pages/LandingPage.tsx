@@ -54,22 +54,7 @@ export default function LandingPage() {
       iconColor: "text-pink-600",
       link: "/medication-tracker",
     },
-    {
-      icon: Activity,
-      title: "Chronic Care Coach",
-      description: "Daily support for diabetes, hypertension, and other chronic conditions",
-      color: "bg-green-100",
-      iconColor: "text-green-600",
-      link: "/chronic-care",
-    },
-    {
-      icon: Heart,
-      title: "Recovery Monitoring",
-      description: "Post-treatment care and discharge instruction tracking",
-      color: "bg-red-100",
-      iconColor: "text-red-600",
-      link: "/recovery-monitoring",
-    },
+    
     {
       icon: AlertTriangle,
       title: "Early Warning Monitor",
@@ -78,30 +63,9 @@ export default function LandingPage() {
       iconColor: "text-orange-600",
       link: "/health-monitoring",
     },
-    {
-      icon: MapPin,
-      title: "Healthcare Navigator",
-      description: "Find the right doctor, clinic, or hospital for your needs",
-      color: "bg-indigo-100",
-      iconColor: "text-indigo-600",
-      link: "/navigation-assistant",
-    },
-    {
-      icon: BookOpen,
-      title: "Health Education Hub",
-      description: "Disease awareness, prevention guides, and wellness tips",
-      color: "bg-teal-100",
-      iconColor: "text-teal-600",
-      link: "/education-hub",
-    },
-    {
-      icon: Phone,
-      title: "Emergency Guidance",
-      description: "Quick access to emergency protocols and urgent care information",
-      color: "bg-red-100",
-      iconColor: "text-red-600",
-      link: "/navigation-assistant",
-    },
+    
+    
+   
   ];
 
   const trustIndicators = [

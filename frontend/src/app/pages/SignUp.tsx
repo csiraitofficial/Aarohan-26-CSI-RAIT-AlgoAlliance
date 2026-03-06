@@ -62,9 +62,8 @@ export default function SignUp() {
       <div className="w-full max-w-2xl">
         {/* Logo */}
         <Link to="/" className="flex items-center justify-center gap-2 mb-8">
-          <div className="bg-gradient-to-br from-indigo-600 to-indigo-700 p-3 rounded-2xl">
-            <Heart className="w-8 h-8 text-white" fill="white" />
-          </div>
+          <img src="/logo.jpeg" alt="योगvahin Logo" className="w-18 h-18" />
+          <span className="text-2xl font-bold text-gray-900">योगvahin</span>
           <span className="text-2xl font-bold text-gray-900">HealthAI</span>
         </Link>
 

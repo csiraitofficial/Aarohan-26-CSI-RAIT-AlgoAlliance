@@ -55,10 +55,7 @@ export default function LandingPage() {
       link: "/medication-tracker",
     },
     
-<<<<<<< HEAD
   
-=======
->>>>>>> db8c60f5a9e29b5834a92db9f1c317ff4a7b243b
     {
       icon: AlertTriangle,
       title: "Early Warning Monitor",
@@ -69,11 +66,7 @@ export default function LandingPage() {
     },
     
     
-<<<<<<< HEAD
     
-=======
-   
->>>>>>> db8c60f5a9e29b5834a92db9f1c317ff4a7b243b
   ];
 
   const trustIndicators = [

@@ -16,15 +16,18 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
-<<<<<<< HEAD
   server: {
     proxy: {
+      "/auth": "http://localhost:5000",
       "/summarize-report": "http://localhost:5000",
       "/chat": "http://localhost:5000",
+      "/model-api": {
+        target: "http://127.0.0.1:8001",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/model-api/, ""),
+      },
     },
   },
-=======
->>>>>>> db8c60f5a9e29b5834a92db9f1c317ff4a7b243b
 
   // File types to support raw imports. Never add .css, .tsx, or .ts files to this.
   assetsInclude: ['**/*.svg', '**/*.csv'],

@@ -12,6 +12,67 @@ import EducationHub from "./pages/EducationHub";
 import Dashboard from "./pages/Dashboard";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
+import { ProtectedRoute } from "../context/ProtectedRoute";
+
+const ProtectedDashboard = () => (
+  <ProtectedRoute>
+    <Dashboard />
+  </ProtectedRoute>
+);
+
+const ProtectedSymptomGuidance = () => (
+  <ProtectedRoute>
+    <SymptomGuidance />
+  </ProtectedRoute>
+);
+
+const ProtectedReportUpload = () => (
+  <ProtectedRoute>
+    <ReportUpload />
+  </ProtectedRoute>
+);
+
+const ProtectedMedicationTracker = () => (
+  <ProtectedRoute>
+    <MedicationTracker />
+  </ProtectedRoute>
+);
+
+const ProtectedChronicCare = () => (
+  <ProtectedRoute>
+    <ChronicCare />
+  </ProtectedRoute>
+);
+
+const ProtectedRecoveryMonitoring = () => (
+  <ProtectedRoute>
+    <RecoveryMonitoring />
+  </ProtectedRoute>
+);
+
+const ProtectedHealthMonitoring = () => (
+  <ProtectedRoute>
+    <HealthMonitoring />
+  </ProtectedRoute>
+);
+
+const ProtectedNavigationAssistant = () => (
+  <ProtectedRoute>
+    <NavigationAssistant />
+  </ProtectedRoute>
+);
+
+const ProtectedLocationContext = () => (
+  <ProtectedRoute>
+    <LocationContext />
+  </ProtectedRoute>
+);
+
+const ProtectedEducationHub = () => (
+  <ProtectedRoute>
+    <EducationHub />
+  </ProtectedRoute>
+);
 
 export const router = createBrowserRouter([
   {
@@ -20,43 +81,43 @@ export const router = createBrowserRouter([
   },
   {
     path: "/symptom-guidance",
-    Component: SymptomGuidance,
+    Component: ProtectedSymptomGuidance,
   },
   {
     path: "/report-upload",
-    Component: ReportUpload,
+    Component: ProtectedReportUpload,
   },
   {
     path: "/medication-tracker",
-    Component: MedicationTracker,
+    Component: ProtectedMedicationTracker,
   },
   {
     path: "/chronic-care",
-    Component: ChronicCare,
+    Component: ProtectedChronicCare,
   },
   {
     path: "/recovery-monitoring",
-    Component: RecoveryMonitoring,
+    Component: ProtectedRecoveryMonitoring,
   },
   {
     path: "/health-monitoring",
-    Component: HealthMonitoring,
+    Component: ProtectedHealthMonitoring,
   },
   {
     path: "/navigation-assistant",
-    Component: NavigationAssistant,
+    Component: ProtectedNavigationAssistant,
   },
   {
     path: "/location-context",
-    Component: LocationContext,
+    Component: ProtectedLocationContext,
   },
   {
     path: "/education-hub",
-    Component: EducationHub,
+    Component: ProtectedEducationHub,
   },
   {
     path: "/dashboard",
-    Component: Dashboard,
+    Component: ProtectedDashboard,
   },
   {
     path: "/signin",

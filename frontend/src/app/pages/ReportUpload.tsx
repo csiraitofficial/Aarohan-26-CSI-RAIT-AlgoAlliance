@@ -5,29 +5,14 @@ import { Button } from "../components/ui/button";
 import { Label } from "../components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../components/ui/select";
 import { Badge } from "../components/ui/badge";
-<<<<<<< HEAD
 import { MedicalReportSummarizer } from "../components/MedicalReportSummarizer";
 import {
-=======
-import {
-  Upload,
-  FileText,
-  CheckCircle,
->>>>>>> db8c60f5a9e29b5834a92db9f1c317ff4a7b243b
   AlertTriangle,
   HelpCircle,
   Download,
 } from "lucide-react";
-<<<<<<< HEAD
 
 export default function ReportUpload() {
-=======
-import { useState } from "react";
-
-export default function ReportUpload() {
-  const [uploadedFile, setUploadedFile] = useState<string | null>(null);
-
->>>>>>> db8c60f5a9e29b5834a92db9f1c317ff4a7b243b
   return (
     <div className="min-h-screen bg-gray-50">
       <Navigation />
@@ -44,36 +29,7 @@ export default function ReportUpload() {
         <div className="grid lg:grid-cols-2 gap-6">
           {/* Upload Section */}
           <div className="space-y-6">
-<<<<<<< HEAD
             <MedicalReportSummarizer />
-=======
-            <Card className="p-6">
-              <h3 className="font-semibold text-gray-900 mb-4">Upload Report</h3>
-              
-              {/* Upload Area */}
-              <div className="border-2 border-dashed border-gray-300 rounded-2xl p-8 text-center hover:border-indigo-500 transition-colors cursor-pointer">
-                <Upload className="w-12 h-12 text-gray-400 mx-auto mb-3" />
-                <p className="text-gray-900 font-medium mb-1">
-                  Click to upload or drag and drop
-                </p>
-                <p className="text-sm text-gray-500 mb-4">
-                  PDF, JPG, PNG up to 10MB
-                </p>
-                <Button className="bg-indigo-600 hover:bg-indigo-700">
-                  Choose File
-                </Button>
-              </div>
-
-              {uploadedFile && (
-                <div className="mt-4 p-4 bg-green-50 border border-green-200 rounded-xl flex items-center gap-3">
-                  <CheckCircle className="w-5 h-5 text-green-600" />
-                  <span className="text-sm text-green-900 font-medium flex-1">
-                    blood-test-report.pdf uploaded successfully
-                  </span>
-                </div>
-              )}
-            </Card>
->>>>>>> db8c60f5a9e29b5834a92db9f1c317ff4a7b243b
 
             <Card className="p-6">
               <h3 className="font-semibold text-gray-900 mb-4">Report Details</h3>

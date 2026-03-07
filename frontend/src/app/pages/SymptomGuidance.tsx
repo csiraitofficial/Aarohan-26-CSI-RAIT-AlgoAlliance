@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 
+<<<<<<< HEAD
 type ChatMessage = {
   role: "user" | "assistant";
   content: string;
@@ -36,6 +37,16 @@ export default function SymptomGuidance() {
   const [inputMessage, setInputMessage] = useState("");
   const [isSending, setIsSending] = useState(false);
   const [error, setError] = useState<string | null>(null);
+=======
+export default function SymptomGuidance() {
+  const [messages, setMessages] = useState([
+    {
+      role: "assistant",
+      content: "Hello! I'm your AI health assistant. I can help you understand your symptoms and provide precautionary guidance. Please note that I don't provide medical diagnoses. How can I help you today?",
+    },
+  ]);
+  const [inputMessage, setInputMessage] = useState("");
+>>>>>>> db8c60f5a9e29b5834a92db9f1c317ff4a7b243b
 
   const quickSymptoms = [
     { label: "Fever", icon: ThermometerSun },
@@ -48,6 +59,7 @@ export default function SymptomGuidance() {
 
   const handleSendMessage = async () => {
     if (!inputMessage.trim()) return;
+<<<<<<< HEAD
 
     const userText = inputMessage.trim();
     setInputMessage("");
@@ -106,6 +118,57 @@ export default function SymptomGuidance() {
     }
   };
 
+=======
+    
+    // 1. Add user message to the UI immediately
+    const userMsg = { role: "user", content: inputMessage };
+    setMessages(prev => [...prev, userMsg]);
+    const currentInput = inputMessage; 
+    setInputMessage("");
+    
+    try {
+      // 2. Call the FastAPI endpoint
+      const response = await fetch('http://127.0.0.1:8000/get_response', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: currentInput }),
+      });
+
+      const data = await response.json();
+
+      // 3. Update UI with the AI's actual prediction
+      if (data.disease) {
+        setMessages(prev => [...prev, {
+          role: "assistant",
+          content: `I've analyzed your symptoms. This sounds like ${data.disease} (${data.confidence}). \n\nGuidance: ${data.advice}`,
+        }]);
+      } else {
+        setMessages(prev => [...prev, {
+          role: "assistant",
+          content: data.error || "I'm not sure. Could you describe that differently?",
+        }]);
+      }
+    } catch (error) {
+      console.error("Connection failed:", error);
+      setMessages(prev => [...prev, {
+        role: "assistant",
+        content: "Error: Could not connect to the medical AI server. Please ensure the backend is running.",
+      }]);
+    }
+  };
+
+  const handleCorrection = async (originalPattern: string, correctDisease: string) => {
+    await fetch('http://127.0.0.1:8000/submit_feedback', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ 
+        pattern: originalPattern, 
+        tag: correctDisease 
+      }),
+    });
+    alert("Feedback saved! The model will learn this on the next restart.");
+  };
+>>>>>>> db8c60f5a9e29b5834a92db9f1c317ff4a7b243b
   return (
     <div className="min-h-screen bg-gray-50">
       <Navigation />
@@ -189,6 +252,7 @@ export default function SymptomGuidance() {
                   placeholder="Describe your symptoms..."
                   value={inputMessage}
                   onChange={(e) => setInputMessage(e.target.value)}
+<<<<<<< HEAD
                   onKeyPress={(e) => e.key === "Enter" && !isSending && handleSendMessage()}
                 />
                 <Button
@@ -205,6 +269,14 @@ export default function SymptomGuidance() {
                   {error}
                 </p>
               )}
+=======
+                  onKeyPress={(e) => e.key === "Enter" && handleSendMessage()}
+                />
+                <Button onClick={handleSendMessage} className="bg-indigo-600 hover:bg-indigo-700">
+                  <Send className="w-4 h-4" />
+                </Button>
+              </div>
+>>>>>>> db8c60f5a9e29b5834a92db9f1c317ff4a7b243b
             </Card>
 
             {/* Symptom Intake Form */}

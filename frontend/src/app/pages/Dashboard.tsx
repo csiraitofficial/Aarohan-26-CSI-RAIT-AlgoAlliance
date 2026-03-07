@@ -3,8 +3,11 @@ import { Navigation } from "../components/Navigation";
 import { Card } from "../components/ui/card";
 import { Button } from "../components/ui/button";
 import { Badge } from "../components/ui/badge";
+<<<<<<< HEAD
 import { useAuth } from "../../context/AuthContext";
 import { ProtectedRoute } from "../../context/ProtectedRoute";
+=======
+>>>>>>> db8c60f5a9e29b5834a92db9f1c317ff4a7b243b
 import {
   Activity,
   Pill,
@@ -21,8 +24,11 @@ import {
 } from "lucide-react";
 
 export default function Dashboard() {
+<<<<<<< HEAD
   const { user } = useAuth();
 
+=======
+>>>>>>> db8c60f5a9e29b5834a92db9f1c317ff4a7b243b
   const upcomingReminders = [
     { time: "8:00 AM", task: "Take Metformin 500mg", type: "medication" },
     { time: "3:00 PM", task: "Log blood sugar reading", type: "log" },
@@ -35,6 +41,7 @@ export default function Dashboard() {
   ];
 
   return (
+<<<<<<< HEAD
     <ProtectedRoute>
       <div className="min-h-screen bg-gray-50">
         <Navigation />
@@ -81,6 +88,21 @@ export default function Dashboard() {
               </div>
             )}
           </Card>
+=======
+    <div className="min-h-screen bg-gray-50">
+      <Navigation />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Greeting */}
+        <div className="mb-6">
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">
+            Good Morning, Sarah! 👋
+          </h1>
+          <p className="text-gray-600">
+            Here's your health overview for today
+          </p>
+        </div>
+>>>>>>> db8c60f5a9e29b5834a92db9f1c317ff4a7b243b
 
         {/* Quick Actions */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
@@ -334,7 +356,11 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
+<<<<<<< HEAD
       </div>
     </ProtectedRoute>
+=======
+    </div>
+>>>>>>> db8c60f5a9e29b5834a92db9f1c317ff4a7b243b
   );
 }

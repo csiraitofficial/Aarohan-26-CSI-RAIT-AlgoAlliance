@@ -1,0 +1,36 @@
+{
+  "users": [
+    {
+      "id": "1772844618746",
+      "createdAt": "2026-03-07T00:50:18.746Z",
+      "firstName": "Aditya ",
+      "lastName": "Gupta",
+      "email": "aditya.gupta9a24@gmail.com",
+      "password": "$2b$10$F9ubhlYoYmZbnLEW7eWXyecF7D9gkgHLAk8tFgjLvWOQxRXpFTwD6",
+      "age": 20,
+      "gender": "male",
+      "city": "mumbai , maharashtra",
+      "chronicConditions": "diabetes",
+      "medications": "sugar meds",
+      "allergies": "dust",
+      "emergencyContact": "1234567890",
+      "caregiverContact": null
+    },
+    {
+      "id": "1772844949775",
+      "createdAt": "2026-03-07T00:55:49.775Z",
+      "firstName": "shreeven",
+      "lastName": "chavan",
+      "email": "yogeshthankar@gmail.com",
+      "password": "$2b$10$zoiYebfyCgud5k5GBgh0S.I3b29/1Ylbclx6xtCXn/mioKj5620Su",
+      "age": 19,
+      "gender": "male",
+      "city": "mumbai , maharashtra",
+      "chronicConditions": "sinus",
+      "medications": "NOne",
+      "allergies": "dust",
+      "emergencyContact": "9321549491",
+      "caregiverContact": "9325468"
+    }
+  ]
+}

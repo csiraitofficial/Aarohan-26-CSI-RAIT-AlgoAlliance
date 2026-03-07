@@ -38,21 +38,57 @@ export default function SymptomGuidance() {
     { label: "Stomach Pain", icon: Stethoscope },
   ];
 
-  const handleSendMessage = () => {
+  const handleSendMessage = async () => {
     if (!inputMessage.trim()) return;
     
-    setMessages([...messages, { role: "user", content: inputMessage }]);
+    // 1. Add user message to the UI immediately
+    const userMsg = { role: "user", content: inputMessage };
+    setMessages(prev => [...prev, userMsg]);
+    const currentInput = inputMessage; 
     setInputMessage("");
     
-    // Simulate AI response
-    setTimeout(() => {
+    try {
+      // 2. Call the FastAPI endpoint
+      const response = await fetch('http://127.0.0.1:8000/get_response', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: currentInput }),
+      });
+
+      const data = await response.json();
+
+      // 3. Update UI with the AI's actual prediction
+      if (data.disease) {
+        setMessages(prev => [...prev, {
+          role: "assistant",
+          content: `I've analyzed your symptoms. This sounds like ${data.disease} (${data.confidence}). \n\nGuidance: ${data.advice}`,
+        }]);
+      } else {
+        setMessages(prev => [...prev, {
+          role: "assistant",
+          content: data.error || "I'm not sure. Could you describe that differently?",
+        }]);
+      }
+    } catch (error) {
+      console.error("Connection failed:", error);
       setMessages(prev => [...prev, {
         role: "assistant",
-        content: "Thank you for sharing. To provide better guidance, could you tell me more about when these symptoms started and their severity?",
+        content: "Error: Could not connect to the medical AI server. Please ensure the backend is running.",
       }]);
-    }, 1000);
+    }
   };
 
+  const handleCorrection = async (originalPattern: string, correctDisease: string) => {
+    await fetch('http://127.0.0.1:8000/submit_feedback', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ 
+        pattern: originalPattern, 
+        tag: correctDisease 
+      }),
+    });
+    alert("Feedback saved! The model will learn this on the next restart.");
+  };
   return (
     <div className="min-h-screen bg-gray-50">
       <Navigation />
